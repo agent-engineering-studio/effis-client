@@ -434,9 +434,11 @@ from datetime import date, timedelta
 point = (16.60, 40.67)
 days = [date(2026, 6, 1) + timedelta(d) for d in range(92)]
 
+
 async def one(day: date) -> tuple[date, float | None]:
     values = await fetch_fwi(client, day, [point], bbox=(16.0, 40.0, 17.0, 41.0))
     return day, None if values is None else values.get(point)
+
 
 series = await asyncio.gather(*(one(d) for d in days))
 ```
@@ -465,8 +467,13 @@ Every step the `fetch_*` functions perform is public and pure:
 import requests
 
 from effis_client import (
-    WFS_URL, perimeters_params, parse_perimeters,
-    WMS_URL, fwi_params, check_tiff, sample_fwi,
+    WFS_URL,
+    perimeters_params,
+    parse_perimeters,
+    WMS_URL,
+    fwi_params,
+    check_tiff,
+    sample_fwi,
 )
 
 r = requests.get(WFS_URL, params=perimeters_params(bbox), timeout=60)
