@@ -103,8 +103,8 @@ def parse_perimeters(
     A feature with no readable date is **kept**: dropping it would lose a
     perimeter that is still real. An empty body is an empty result.
 
-    Raises :class:`EffisError` when the body is not GeoJSON -- MapServer
-    answers 200 with an XML exception report.
+    Raises :class:`EffisError` when the body is not a GeoJSON
+    FeatureCollection -- MapServer answers 200 with an XML exception report.
     """
     if not content:
         return Perimeters(features=[], fetched=0, truncated=False)
@@ -112,7 +112,9 @@ def parse_perimeters(
         payload = json.loads(content)
     except ValueError as exc:
         raise EffisError(f"EFFIS WFS did not return GeoJSON: {describe(content)}") from exc
-    features = list(payload.get("features") or [])
+    features = (payload.get("features") or []) if isinstance(payload, dict) else None
+    if not isinstance(features, list) or not all(isinstance(f, dict) for f in features):
+        raise EffisError(f"EFFIS WFS did not return a FeatureCollection: {describe(content)}")
     in_window = [f for f in features if _within(f, start, end)]
     return Perimeters(
         features=in_window,

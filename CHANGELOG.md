@@ -6,6 +6,14 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-02
+
+### Fixed
+
+- `parse_perimeters` raises `EffisError` on valid JSON that is not a
+  FeatureCollection (`[]`, `null`, a string, non-object features) instead of
+  an `AttributeError`, so callers catching `EffisError` see every bad body.
+
 ## [0.1.1] - 2026-11-02
 
 ### Changed
