@@ -94,6 +94,35 @@ def test_an_xml_error_disguised_as_200_raises() -> None:
         parse_perimeters(xml, start=date(2024, 1, 1), end=date(2024, 12, 31))
 
 
+@pytest.mark.parametrize(
+    "body",
+    [
+        b"[]",
+        b"null",
+        b'"text"',
+        b'{"features": [1, 2]}',
+        b'{"features": [{"properties": "text"}]}',
+        b'{"features": [{"properties": [1]}]}',
+    ],
+)
+def test_json_that_is_not_a_feature_collection_raises(body: bytes) -> None:
+    with pytest.raises(EffisError, match="did not return a FeatureCollection"):
+        parse_perimeters(body, start=date(2024, 1, 1), end=date(2024, 12, 31))
+
+
+def test_feature_date_of_non_object_properties_is_none() -> None:
+    assert feature_date({"properties": "text"}) is None
+
+
+def test_a_collection_without_features_is_empty() -> None:
+    out = parse_perimeters(
+        b'{"type": "FeatureCollection", "features": null}',
+        start=date(2024, 1, 1),
+        end=date(2024, 12, 31),
+    )
+    assert out.features == [] and out.fetched == 0
+
+
 def _client(handler: httpx.MockTransport) -> httpx.AsyncClient:
     return httpx.AsyncClient(transport=handler)
 
