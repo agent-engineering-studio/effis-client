@@ -6,6 +6,15 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-02
+
+### Changed
+
+- Detailed README: diagrams of the architecture, request flows, FWI chain
+  and error model; figures rendered from live EFFIS data; a cookbook of
+  examples; API reference. Images use absolute URLs so they render on PyPI.
+- `docs/scripts/` regenerates the README figures.
+
 ## [0.1.0] - 2026-11-02
 
 ### Added
