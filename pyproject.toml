@@ -1,6 +1,6 @@
 [project]
 name = "effis-client"
-version = "0.1.0"
+version = "0.1.1"
 description = "Client for the public EFFIS services: burnt-area perimeters and official FWI rasters"
 readme = "README.md"
 keywords = ["effis", "copernicus", "wildfire", "burnt area", "fire weather index", "fwi", "wfs", "wms", "mapserver"]
