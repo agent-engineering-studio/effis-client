@@ -50,6 +50,11 @@ dev = [
     "ruff>=0.8",
 ]
 
+docs = [
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.26",
+]
+
 [tool.ruff]
 line-length = 100
 target-version = "py312"

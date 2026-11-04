@@ -12,10 +12,10 @@ No account. No API key. No silent failures.
 [![ci](https://github.com/agent-engineering-studio/effis-client/actions/workflows/ci.yml/badge.svg)](https://github.com/agent-engineering-studio/effis-client/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/effis-client)](https://pypi.org/project/effis-client/)
 [![Python](https://img.shields.io/pypi/pyversions/effis-client)](https://pypi.org/project/effis-client/)
-[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](./LICENSE)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](https://github.com/agent-engineering-studio/effis-client/blob/main/LICENSE)
 [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
-[![Typed](https://img.shields.io/badge/typing-mypy%20strict-informational)](./pyproject.toml)
-[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](./tests)
+[![Typed](https://img.shields.io/badge/typing-mypy%20strict-informational)](https://github.com/agent-engineering-studio/effis-client/blob/main/pyproject.toml)
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/agent-engineering-studio/effis-client/blob/main/tests)
 
 <img src="https://raw.githubusercontent.com/agent-engineering-studio/effis-client/main/docs/images/fwi-italy.png" alt="Map of Italy coloured by the official EFFIS Fire Weather Index on 1 August 2026: very high values across the south, Sardinia and Sicily, low values over the Alps" width="640">
 
@@ -627,8 +627,8 @@ make check   # ruff, mypy --strict and pytest: the same gate CI runs
 - Found a new MapServer quirk? That is a valuable contribution on its own:
   open an issue with the request and the response you got.
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for details and the
-[CHANGELOG](./CHANGELOG.md) for what changed.
+See [CONTRIBUTING.md](https://github.com/agent-engineering-studio/effis-client/blob/main/CONTRIBUTING.md) for details and the
+[CHANGELOG](https://github.com/agent-engineering-studio/effis-client/blob/main/CHANGELOG.md) for what changed.
 
 ### Regenerating the figures
 
@@ -678,7 +678,7 @@ FWI rasters to check its own FWI chain
 
 ## License
 
-Code: [Apache-2.0](./LICENSE). Contributions are accepted under the same
+Code: [Apache-2.0](https://github.com/agent-engineering-studio/effis-client/blob/main/LICENSE). Contributions are accepted under the same
 license.
 
 <div align="center">
