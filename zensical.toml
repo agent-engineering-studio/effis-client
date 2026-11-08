@@ -1,0 +1,84 @@
+# Documentation site, built by Zensical (https://zensical.org) from docs/
+# and the docstrings in src/. Deployed to GitHub Pages by
+# .github/workflows/docs.yml.
+
+[project]
+site_name = "effis-client"
+site_description = "Client for the public EFFIS services: burnt-area perimeters and official FWI rasters"
+site_url = "https://agentengineering.it/effis-client/"
+repo_url = "https://github.com/agent-engineering-studio/effis-client"
+repo_name = "agent-engineering-studio/effis-client"
+edit_uri = "edit/main/docs/"
+exclude_docs = """
+scripts/
+"""
+copyright = "Code Apache-2.0. Data: European Forest Fire Information System (EFFIS), Copernicus Emergency Management Service, © European Union, CC BY 4.0."
+nav = [
+  { "Home" = "index.md" },
+  { "API reference" = [
+    { "Burnt-area perimeters" = "api/perimeters.md" },
+    { "Fire Weather Index (WMS)" = "api/fwi.md" },
+    { "Errors" = "api/errors.md" },
+  ] },
+  { "Changelog" = "changelog.md" },
+  { "Contributing" = "contributing.md" },
+]
+
+[project.theme]
+language = "en"
+features = [
+  "content.action.edit",
+  "content.code.copy",
+  "navigation.footer",
+  "navigation.instant",
+  "navigation.sections",
+  "navigation.top",
+  "search.highlight",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "orange"
+toggle.icon = "lucide/moon"
+toggle.name = "Dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "orange"
+toggle.icon = "lucide/sun"
+toggle.name = "Light mode"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/agent-engineering-studio/effis-client"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/python"
+link = "https://pypi.org/project/effis-client/"
+
+[project.plugins.mkdocstrings.handlers.python]
+paths = ["src"]
+
+[project.plugins.mkdocstrings.handlers.python.options]
+show_source = false
+show_root_heading = true
+show_signature_annotations = true
+separate_signature = true
+members_order = "source"
+filters = ["!^_"]
+
+[project.markdown_extensions]
+admonition = {}
+attr_list = {}
+md_in_html = {}
+tables = {}
+toc.permalink = true
+pymdownx.highlight = {}
+pymdownx.inlinehilite = {}
+pymdownx.snippets.base_path = ["."]
+pymdownx.snippets.check_paths = true
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
